@@ -35,9 +35,7 @@ io.on('connection', socket => {
             console.log('A client disconnected!')
         })
         .on('newUser', (username, time) => {
-            // A new user logs in.
             const message = `${username} has logged on.`
-            // Tell other users someone has logged on.
             socket.broadcast.emit('newMessage', {
                 message,
                 time,
@@ -49,6 +47,9 @@ io.on('connection', socket => {
             console.log(data)
             socket.broadcast.emit('newMessage', {
                 ...data
-            }) 
+            })
+            socket.emit('sent', {
+                ...data
+            })
         })
 })

@@ -61,3 +61,33 @@ button {
 #username {
     color: black;
 }
+
+.checkmark {
+    display: inline-block;
+    content: '';
+    width: 2rem;
+    height:2rem;
+    position: relative;
+}
+.checkmark::before {
+    position: absolute;
+    content: '';
+    width:3px;
+    height:14px;
+    background: blue;
+    left: 16px;
+    top:2.5px;
+    transform: rotate(45deg);
+}
+.checkmark::after {
+    position: absolute;
+    content: '';
+    width:3px;
+    height: 8px;
+    background:blue;
+    left:10px;
+
+    top:8px;
+    transform: rotate(-45deg);
+
+}

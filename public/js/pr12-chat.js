@@ -7,6 +7,11 @@ const date = new Date()
 
 socket.on('newMessage', data => {
     addMessage(data, false)
+    
+})
+socket.on('sent', data => {
+    addSentCheckmark(data)
+    console.log(data.id)
 })
 const getTime = () => {
     const d = new Date()
@@ -18,16 +23,23 @@ const postMessage = () => {
     const message = messageEl.value.trim()
     const from = user.value
     const time = getTime()
+    const id = Math.floor(Math.random() * 100000)
 
-    const data = { message, from, time }
-    socket.emit('message', data)
+    const data = { message, from, time, id }
     addMessage(data, true)
+    socket.emit('message', data)
     messageEl.value = ''
 }
 const addMessage = (data = {}, user = false) => {
     chatBox.innerHTML += `
     <li class="message${user ? ' uMessage' : ''}">
-        ${data.from} ${data.time}: ${data.message}
+        @${data.from} ${data.time}
+        <div id="${data.id}"></div>
+        </br>
+        ${data.message}
     </li>
     `
+}
+const addSentCheckmark = (data = {}) => {
+    document.getElementById(data.id).classList.add("checkmark")
 }

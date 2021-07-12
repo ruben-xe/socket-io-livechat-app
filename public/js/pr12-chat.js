@@ -26,8 +26,8 @@ const postMessage = () => {
     const id = Math.floor(Math.random() * 100000)
 
     const data = { message, from, time, id }
-    addMessage(data, true)
     socket.emit('message', data)
+    addMessage(data, true)
     messageEl.value = ''
 }
 const addMessage = (data = {}, user = false) => {

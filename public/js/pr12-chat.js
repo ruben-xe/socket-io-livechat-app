@@ -27,7 +27,7 @@ const postMessage = () => {
 const addMessage = (data = {}, user = false) => {
     chatBox.innerHTML += `
     <li class="message${user ? ' uMessage' : ''}">
-        ${data.from} @${data.time}: ${data.message}
+        ${data.from} ${data.time}: ${data.message}
     </li>
     `
 }

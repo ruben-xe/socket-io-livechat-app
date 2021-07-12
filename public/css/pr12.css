@@ -5,10 +5,10 @@ body {
     color: white;
     text-align: center;
   }
-  a {
-    text-decoration: none; 
-    color: white;
-  }
+a {
+  text-decoration: none; 
+  color: white;
+}
 .container {
     height: 80vh;
     overflow-y: auto;
@@ -22,6 +22,7 @@ body {
 }
 
 ul.chat li.message {
+    color: black;
     border: solid #DCDCDC 0.5rem;
     border-radius: 1rem;
     background-color: #F8F8FF;
@@ -35,7 +36,7 @@ ul.chat li.uMessage {
     border: solid #34c034 0.5rem;
     margin-left: auto;
     background-color: #34c034;
-    color: #F8F8FF;
+    color: white;
 }
 
 .input {
@@ -46,6 +47,7 @@ ul.chat li.uMessage {
 }
 
 .input textarea {
+    color: black;
     border: solid #000000 0.5rem;
     width: 75%;
 }
@@ -55,4 +57,7 @@ ul.chat li.uMessage {
 }
 button {
     color: blue;
+}
+#username {
+    color: black;
 }
